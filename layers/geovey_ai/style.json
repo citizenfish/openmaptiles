@@ -4,7 +4,7 @@
       "id": "geovey_ai",
       "type": "fill",
       "source": "openmaptiles",
-      "source-layer": "building",
+      "source-layer": "geovey_ai",
       "minzoom": 12,
       "maxzoom": 24,
       "layout": {
@@ -15,11 +15,11 @@
           "stops": [
             [
               13,
-              "rgba(222, 213, 207, 1)"
+              "rgba(255, 0, 0, 1)"
             ],
             [
               16,
-              "#d9d0c9"
+              "#ff0000"
             ]
           ]
         },
