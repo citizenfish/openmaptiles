@@ -1,0 +1,21 @@
+layer:
+  id: "geovey_ai"
+  description:
+    This is *********** Geovey_ai prototype *****************
+  buffer_size: 64
+  datasource:
+    geometry_field: geometry
+    key_field: osm_id
+    key_field_as_attribute: no
+    srid: 900913
+    query: (SELECT osm_id, poi_id, poi_name, poi_class, poi_subclass FROM geovey_ai(!bbox!, z(!scale_denominator!))) AS t
+  fields:
+    osm_id:
+    poi_id:
+    poi_name:
+    poi_class:
+    poi_subclass:
+schema:
+  - ./geovey_ai_function.sql
+
+
