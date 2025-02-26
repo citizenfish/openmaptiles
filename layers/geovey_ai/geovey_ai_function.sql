@@ -31,13 +31,12 @@ CREATE OR REPLACE FUNCTION geovey_ai(bbox geometry, zoom_level integer)
        poi_name TEXT,
        poi_class TEXT,
        poi_subclass TEXT,
-        title TEXT,
-    description TEXT,
-    postcode TEXT,
-    address TEXT,
-    website TEXT,
-    thumbnail TEXT
-
+       title TEXT,
+       description TEXT,
+       postcode TEXT,
+       address TEXT,
+       website TEXT,
+       thumbnail TEXT
        ) AS
 $$
 
