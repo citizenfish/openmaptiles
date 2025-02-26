@@ -17,7 +17,7 @@ $$
     description,
     postcode,
     address,
-    website,
+    url AS website,
     thumbnail
     FROM public.brixham_buildings_gmap_added
   WHERE zoom_level  > 13

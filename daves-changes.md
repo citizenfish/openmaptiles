@@ -47,7 +47,7 @@ make generate-tiles-pg
 
 --must join from higher to lower zoom level order
 
-tile-join -o data/devon_final.mbtiles data/devon_tiles.mbtiles data/planet_tiles.mbtiles data/devon_tiles.mbtiles --force
+tile-join -o data/devon_final.mbtiles data/devon_tiles.mbtiles data/planet_tiles.mbtiles --force
 
 --edit style/config.json and change "mbtiles": "/data/devon_final.mbtiles" 
 style/style-header.json and change "url": "mbtiles:///data/devon_final.mbtiles"
