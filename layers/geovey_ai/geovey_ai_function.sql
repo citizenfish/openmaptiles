@@ -1,6 +1,3 @@
---DROP FUNCTION layer_brixham_building(geometry,integer)
---DROP FUNCTION geovey_ai(geometry,integer)
-
 CREATE OR REPLACE FUNCTION layer_brixham_building(bbox geometry, zoom_level int)
     RETURNS TABLE (
         geometry geometry,
@@ -20,7 +17,7 @@ $$
     description,
     postcode,
     address,
-    url AS website,
+    website,
     thumbnail
     FROM public.brixham_buildings_gmap_added
   WHERE zoom_level  > 13
@@ -61,10 +58,11 @@ FROM
     (SELECT *
      FROM layer_brixham_building(bbox, zoom_level)) AS b
 LEFT JOIN LATERAL
-    (SELECT p.osm_id, p.geometry, COALESCE(p.name,'') as name, p.class, p.subclass
-     FROM layer_poi(bbox, zoom_level, 0) p
+    (SELECT p.osm_id, p.geometry, COALESCE(p.name,'') as name, '' AS class, p.subclass
+     --FROM layer_poi(bbox, zoom_level, 0) --p
+     FROM public.osm_poi_point p
      WHERE ST_INTERSECTS(b.geometry, p.geometry)
-     ORDER BY p.rank DESC NULLS LAST LIMIT 1) AS p
+     LIMIT 1) AS p
 ON TRUE;
 $$ LANGUAGE SQL;
 
