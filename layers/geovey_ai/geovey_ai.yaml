@@ -8,7 +8,7 @@ layer:
     key_field: osm_id
     key_field_as_attribute: no
     srid: 900913
-    query: (SELECT osm_id, geometry, poi_id, poi_name, poi_class, poi_subclass, title, description, postcode, address, website, thumbnail,classify,height FROM geovey_ai(!bbox!, z(!scale_denominator!))) AS t
+    query: (SELECT osm_id, geometry, poi_id, poi_name, poi_class, poi_subclass, title, description, postcode, address, website, thumbnail,classify, height FROM geovey_ai(!bbox!, z(!scale_denominator!))) AS t
   fields:
     osm_id:
     poi_id:
