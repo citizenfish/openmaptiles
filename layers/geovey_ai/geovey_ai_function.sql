@@ -1,5 +1,5 @@
---DROP FUNCTION layer_brixham_building(geometry,integer)
---DROP FUNCTION geovey_ai(geometry,integer)
+--DROP FUNCTION layer_brixham_building(geometry,integer);
+--DROP FUNCTION geovey_ai(geometry,integer);
 CREATE OR REPLACE FUNCTION layer_brixham_building(bbox geometry, zoom_level int)
     RETURNS TABLE (
         geometry geometry,
@@ -10,7 +10,8 @@ CREATE OR REPLACE FUNCTION layer_brixham_building(bbox geometry, zoom_level int)
     address text,
     website text,
     thumbnail text,
-    classify text
+    classify text,
+    height double precision
                   )
 AS
 $$
@@ -22,7 +23,8 @@ $$
     address,
     url AS website,
     thumbnail,
-    classify
+    classify,
+    abshmax as height
     FROM public.brixham_buildings_gmap_added
   WHERE zoom_level  > 13
 $$ LANGUAGE SQL STABLE PARALLEL SAFE;
@@ -41,7 +43,8 @@ CREATE OR REPLACE FUNCTION geovey_ai(bbox geometry, zoom_level integer)
        address TEXT,
        website TEXT,
        thumbnail TEXT,
-       classify TEXT
+       classify TEXT,
+       height double precision
        ) AS
 $$
 
@@ -58,7 +61,8 @@ SELECT
     b.address,
     b.website,
     b.thumbnail,
-    b.classify
+    b.classify,
+    b.height
 FROM
     (SELECT *
      FROM layer_brixham_building(bbox, zoom_level)) AS b
