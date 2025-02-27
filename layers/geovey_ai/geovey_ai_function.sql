@@ -24,7 +24,7 @@ $$
     url AS website,
     thumbnail,
     classify,
-    abshmax as height
+    relhmax as height
     FROM public.brixham_buildings_gmap_added
   WHERE zoom_level  > 13
 $$ LANGUAGE SQL STABLE PARALLEL SAFE;

@@ -1,4 +1,6 @@
 git pull
+make clean
+make
 make import-sql
 rm -rf data/*.mbtiles
 cp .env_planet .env
