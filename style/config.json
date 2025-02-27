@@ -16,7 +16,7 @@
   },
   "data": {
     "openmaptiles": {
-      "mbtiles": "/data/tiles.mbtiles"
+      "mbtiles": "/data/devon_tiles.mbtiles"
     }
   }
 }

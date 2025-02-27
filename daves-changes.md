@@ -1,17 +1,3 @@
-# Layer creation
-
-Testing geometries
-```sql
-SELECT * FROM geovey_ai(ST_MakeEnvelope(
-    -393803.56972543895, -- MinX
-    6513657.802353076,   -- MinY
-    -391357.584820312,   -- MaxX
-    6516103.787258202,   -- MaxY
-    3857                 -- SRID (Change to your spatial reference system)
-), 14) where poi_id is not null
-
-```
-
 # Config for local server
 
 FROM:
